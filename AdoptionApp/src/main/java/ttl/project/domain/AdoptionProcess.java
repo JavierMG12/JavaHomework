@@ -1,4 +1,4 @@
-package ttl.Project.Domain;
+package ttl.project.domain;
 
 import jakarta.persistence.*;
 
@@ -11,11 +11,14 @@ public class AdoptionProcess {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_order")
     private int id;
+
     @Column(name = "adoption_date")
     private LocalDate dateAdoption;
-    @OneToOne
+
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private Person client;
-    @OneToMany
+
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     private List<Animal> pets;
 
     public AdoptionProcess(){

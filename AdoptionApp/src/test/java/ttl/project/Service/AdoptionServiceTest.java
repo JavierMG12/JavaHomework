@@ -1,11 +1,11 @@
-package ttl.Project.Service;
+package ttl.project.Service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import ttl.Project.Domain.AdoptionProcess;
-import ttl.Project.Domain.Animal;
-import ttl.Project.Domain.Person;
+import ttl.project.domain.AdoptionProcess;
+import ttl.project.domain.Animal;
+import ttl.project.domain.Person;
 
 import java.time.LocalDate;
 import java.util.List;

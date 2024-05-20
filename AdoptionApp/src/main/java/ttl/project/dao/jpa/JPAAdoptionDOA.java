@@ -1,51 +1,43 @@
-package ttl.Project.dao.inmemory;
+package ttl.project.dao.jpa;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
-import ttl.Project.Domain.AdoptionProcess;
-import ttl.Project.dao.AdoptionDOA;
+import ttl.project.domain.AdoptionProcess;
+import ttl.project.dao.AdoptionDOA;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-@Repository
-@Profile("dev")
-public class InMemoryAdoptionDOA implements AdoptionDOA {
+@Repository()
+@Profile("prod")
+public class JPAAdoptionDOA implements AdoptionDOA {
 
-    public InMemoryAdoptionDOA(){
-        int stop=0;
-    }
     private Map<Integer, AdoptionProcess> Adoptions = new HashMap<>();
     private int nextId=1;
 
-    @Override
     public AdoptionProcess insert(AdoptionProcess adoptionProcess)
     {
         int id = nextId++;
         adoptionProcess.setId(id);
-        adoptionProcess.getClient().setNameAdopter(adoptionProcess.getClient().getNameAdopter());
+        adoptionProcess.getClient().setNameAdopter("JPA: "+ adoptionProcess.getClient().getNameAdopter());
         Adoptions.put(adoptionProcess.getId(),adoptionProcess);
         return  adoptionProcess;
     }
 
-    @Override
     public boolean delete(int id){
         return Adoptions.remove(id) != null;
     }
 
-    @Override
     public boolean update(AdoptionProcess adoptionProcess){
         return Adoptions.replace(adoptionProcess.getId(), adoptionProcess) != null;
     }
 
-    @Override
     public AdoptionProcess findById(int id){
         return Adoptions.get(id);
     }
 
-    @Override
     public List<AdoptionProcess> findAll(){
         return new ArrayList<>(Adoptions.values());
     }
@@ -71,13 +63,12 @@ public class InMemoryAdoptionDOA implements AdoptionDOA {
         for(Map.Entry<Integer, AdoptionProcess> entry :  Adoptions.entrySet()){
             Integer key = entry.getKey();
             AdoptionProcess adoptionProcess = entry.getValue();
-            if(adoptionProcess.getDateAdoption().equals(date))
+            if(adoptionProcess.getDateAdoption() == date)
             {
                 List.add(adoptionProcess);
             }
         }
         return List;
     }
-
 
 }

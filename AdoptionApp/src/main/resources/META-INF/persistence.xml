@@ -24,13 +24,17 @@
             strategy produces.
             -->
             <!--            <property name="hibernate.physical_naming_strategy" value="org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy"/>-->
-            <property name="hibernate.naming.physical-strategy"
-                      value="org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl"/>
+<!--            <property name="hibernate.naming.physical-strategy"-->
+<!--                      value="org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl"/>-->
+
+            <!-- JAVIER, UNCOMMENT the next line
+                 if you want Hibernate to make the tables
+                 for you -->
+
+<!--            <property name="jakarta.persistence.schema-generation.database.action" -->
 
 
             <!--
-            <property name="jakarta.persistence.schema-generation.database.action"
-                value="drop-and-create" />
             <property name="jakarta.persistence.schema-generation.create-source"
                 value="script" />
             <property name="jakarta.persistence.schema-generation.create-script-source"

@@ -1,7 +1,7 @@
-package ttl.Project.dao;
+package ttl.project.dao;
 
-import ttl.Project.dao.inmemory.InMemoryAdoptionDOA;
-import ttl.Project.dao.jpa.JPAAdoptionDOA;
+import ttl.project.dao.inmemory.InMemoryAdoptionDOA;
+import ttl.project.dao.jpa.JPAAdoptionDOA;
 
 import java.util.ResourceBundle;
 

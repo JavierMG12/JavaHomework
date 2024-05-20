@@ -1,21 +1,16 @@
-package ttl.Project;
+package ttl.project;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
-import ttl.Project.Domain.AdoptionProcess;
-import ttl.Project.Domain.Animal;
-import ttl.Project.Domain.Person;
-import ttl.Project.Service.AdoptionService;
-import ttl.Project.dao.AdoptionDOA;
-import ttl.Project.jconfig.AdoptionConfig;
+import ttl.project.domain.AdoptionProcess;
+import ttl.project.domain.Animal;
+import ttl.project.domain.Person;
+import ttl.project.Service.AdoptionService;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 @SpringBootApplication
 public class MainApp {

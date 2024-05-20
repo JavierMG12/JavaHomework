@@ -1,10 +1,12 @@
-package ttl.Project.Domain;
+//Package Names should be *ALL* lower case
+package ttl.project.domain;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +15,9 @@ import static java.lang.System.out;
 public class JPAMain {
     public static void main(String[] args) {
         initApp();
-        SelectAllAdoptions();
+        insertData();
+        //Method names should start in lower case !!!
+        selectAllAdoptions();
 
     }
     private static EntityManagerFactory emf;
@@ -32,6 +36,40 @@ public class JPAMain {
         emf = Persistence.createEntityManagerFactory("LarkUPU_SE", props);
     }
 
+    public static void insertData() {
+        List<Animal> pets = List.of(
+              new Animal(
+                    0,
+                    "Chicken",
+                    "DOG",
+                    "Chihuahua"
+              ),
+              new Animal(
+                    0,
+                    "Rocket",
+                    "DOG",
+                    "Corgi"
+              ));
+        AdoptionProcess adoptionProcess = new AdoptionProcess(
+              0,
+              LocalDate.of(2024,4,29),
+              new Person(0,"Javier","867123456"),
+              pets
+        );
+
+        try (EntityManager manager = emf.createEntityManager();) {
+            manager.getTransaction().begin();
+
+//            pets.forEach(pet -> manager.persist(pet));
+//            pets.forEach(manager::persist);
+
+            manager.persist(adoptionProcess);
+
+            manager.getTransaction().commit();
+        }
+
+    }
+
     public static void SelectAllpets() {
         try (EntityManager manager = emf.createEntityManager();) {
 
@@ -44,7 +82,7 @@ public class JPAMain {
         }
     }
     //Error with id_
-    public static void SelectAllAdoptions() {
+    public static void selectAllAdoptions() {
         try (EntityManager manager = emf.createEntityManager();) {
 
             TypedQuery<AdoptionProcess> query = manager.createQuery("select c from AdoptionProcess c", AdoptionProcess.class);

@@ -1,14 +1,10 @@
-package ttl.Project.jconfig;
+package ttl.project.jconfig;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import ttl.Project.Service.AdoptionService;
-import ttl.Project.dao.AdoptionDOA;
-import ttl.Project.dao.inmemory.InMemoryAdoptionDOA;
 
 @Configuration
-@ComponentScan({"ttl.Project"})
+@ComponentScan({"ttl.project"})
 public class AdoptionConfig {
 //    @Bean
 //    public AdoptionDOA adoptionDOA(){

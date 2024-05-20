@@ -1,6 +1,4 @@
-package ttl.Project.Domain;
-
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
+package ttl.project.domain;
 
 import java.sql.*;
 import java.time.LocalDate;

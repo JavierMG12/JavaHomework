@@ -1,6 +1,6 @@
-package ttl.Project.dao;
+package ttl.project.dao;
 
-import ttl.Project.Domain.AdoptionProcess;
+import ttl.project.domain.AdoptionProcess;
 
 import java.time.LocalDate;
 import java.util.List;

@@ -1,4 +1,4 @@
-package ttl.Project.Domain;
+package ttl.project.domain;
 
 import jakarta.persistence.*;
 

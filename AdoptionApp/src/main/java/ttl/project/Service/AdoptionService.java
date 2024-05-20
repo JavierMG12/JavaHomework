@@ -1,10 +1,9 @@
-package ttl.Project.Service;
+package ttl.project.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ttl.Project.Domain.AdoptionProcess;
-import ttl.Project.dao.AdoptionDOA;
-import ttl.Project.dao.DOAFactory;
+import ttl.project.domain.AdoptionProcess;
+import ttl.project.dao.AdoptionDOA;
 
 import java.time.LocalDate;
 import java.util.List;
